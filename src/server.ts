@@ -12,6 +12,11 @@ import { filterImageFromURL, deleteLocalFiles } from "./util/util";
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
 
+  // Root URI call
+  app.get("/", (req: Request, res: Response) => {
+    res.status(200).send("Welcome to the Udacity Udagram Project!");
+  });
+
   app.get("/filteredimage/", async (req: Request, res: Response) => {
     // Get the image_url from the query
     const { image_url } = req.query;
